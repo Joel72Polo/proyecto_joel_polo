@@ -1,14 +1,18 @@
-# services/api_service.py
 import requests
 
 class APIClient:
     def __init__(self):
         self.url = "https://www.datos.gov.co/resource/95jt-2v3q.json"
 
-    def obtener_datos(self, limit=100):
+    def obtener_datos(self, limit=100, filtro=None):
         params = {"$limit": limit}
-        response = requests.get(self.url, params=params)
-        if response.status_code == 200:
+        if filtro:
+            params.update(filtro)
+
+        try:
+            response = requests.get(self.url, params=params)
+            response.raise_for_status()
             return response.json()
-        else:
-            raise Exception(f"Error al obtener datos: {response.status_code}")
+        except requests.RequestException as e:
+            print(f"Error al conectar con la API: {e}")
+            return None
