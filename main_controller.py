@@ -1,14 +1,17 @@
-# app/controllers/main_controller.py
-
-from app.models.data_model import DataModel
+from services.api_service import APIClient
 from app.views.cli_view import CLIView
 
 class MainController:
     def __init__(self):
-        self.modelo = DataModel()
-        self.vista = CLIView()
+        self.api_client = APIClient()
+        self.view = CLIView()
 
-    def iniciar(self):
-        self.vista.mostrar_bienvenida()
-        datos = self.modelo.obtener_departamentos_municipios(limite=10)
-        self.vista.mostrar_datos(datos)
+    def ejecutar(self):
+        self.view.mostrar_bienvenida()
+        datos = self.api_client.obtener_datos(limit=10)  # Límite de 10 por defecto
+        self.view.mostrar_datos(datos)
+
+if __name__ == "__main__":
+    controller = MainController()
+    controller.ejecutar()
+
