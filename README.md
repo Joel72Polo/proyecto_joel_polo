@@ -23,9 +23,13 @@ proyecto_joel_polo/
 ├── requirements.txt # Dependencias
 └── README.md # Este archivo
 
-## Fuente de datos
+### Fuente de datos
 
-Usaremos una API pública de [datos.gov.co](https://www.datos.gov.co/).
+Usaremos el conjunto de datos **Departamentos y Municipios de Colombia**, disponible en:
+
+[https://www.datos.gov.co/Geograf-a-y-Cartograf-a/Departamentos-y-Municipios-de-Colombia/95jt-2v3q](https://www.datos.gov.co/Geograf-a-y-Cartograf-a/Departamentos-y-Municipios-de-Colombia/95jt-2v3q)
+
+Este dataset contiene información sobre los municipios, sus respectivos departamentos y códigos DANE.
 
 ## Estado del proyecto
 
