@@ -31,6 +31,14 @@ Usaremos el conjunto de datos **Departamentos y Municipios de Colombia**, dispon
 
 Este dataset contiene información sobre los municipios, sus respectivos departamentos y códigos DANE.
 
+Campos del Dataset
+
+Nombre del Municipio (string): Nombre del municipio en Colombia.
+
+Código DANE (int): Identificador único para cada municipio.
+
+Departamento (string): Nombre del departamento al que pertenece el municipio.
+
 ## Estado del proyecto
 
 Diseño inicial y conexión con API (Etapa 1)
