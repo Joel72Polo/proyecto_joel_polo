@@ -1,10 +1,10 @@
-# 🗂️ proyecto_joel_polo
+# proyecto_joel_polo
 
 Aplicación en Python estructurada con el patrón **MVC (Modelo - Vista - Controlador)** para consumir y gestionar datos abiertos de Colombia desde [datos.gov.co](https://www.datos.gov.co/).
 
 ---
 
-## 🎯 Objetivo
+## Objetivo
 
 Crear una aplicación en Python que:
 
@@ -15,12 +15,12 @@ Crear una aplicación en Python que:
 
 ---
 
-## 📚 Descripción del Proyecto
+## Descripción del Proyecto
 
 Este proyecto tiene como propósito gestionar datos del conjunto:
 
-📌 **Departamentos y Municipios de Colombia**  
-🔗 [Ver dataset en datos.gov.co](https://www.datos.gov.co/Geograf-a-y-Cartograf-a/Departamentos-y-Municipios-de-Colombia/95jt-2v3q)
+**Departamentos y Municipios de Colombia**  
+[Ver dataset en datos.gov.co](https://www.datos.gov.co/Geograf-a-y-Cartograf-a/Departamentos-y-Municipios-de-Colombia/95jt-2v3q)
 
 Se descargan datos geográficos de todos los municipios del país, los cuales contienen:
 
@@ -32,7 +32,7 @@ Se descargan datos geográficos de todos los municipios del país, los cuales co
 
 ---
 
-## 📊 ¿Qué datos se analizan?
+¿Qué datos se analizan?
 
 Con esta información se pueden responder preguntas como:
 
@@ -45,6 +45,6 @@ Con esta información se pueden responder preguntas como:
 
 ---
 
-## 🧱 Estructura del Proyecto
+
 
 
