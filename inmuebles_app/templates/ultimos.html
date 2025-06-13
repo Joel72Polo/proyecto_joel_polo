@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Últimos Registros</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-6">
+        <h1 class="text-3xl font-bold mb-6">Últimos 5 Registros</h1>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="p-4 mb-4 text-white {% if category == 'success' %}bg-green-500{% else %}bg-red-500{% endif %}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <table class="min-w-full bg-white border">
+            <thead>
+                <tr>
+                    <th class="py-2 px-4 border">ID</th>
+                    <th class="py-2 px-4 border">Registro SCUEP</th>
+                    <th class="py-2 px-4 border">Año</th>
+                    <th class="py-2 px-4 border">Proyecto</th>
+                    <th class="py-2 px-4 border">Dirección</th>
+                    <th class="py-2 px-4 border">Unidades</th>
+                    <th class="py-2 px-4 border">Enajenador</th>
+                    <th class="py-2 px-4 border">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for registro in registros %}
+                    <tr>
+                        <td class="py-2 px-4 border">{{ registro[0] }}</td>
+                        <td class="py-2 px-4 border">{{ registro[1] }}</td>
+                        <td class="py-2 px-4 border">{{ registro[2] }}</td>
+                        <td class="py-2 px-4 border">{{ registro[3] }}</td>
+                        <td class="py-2 px-4 border">{{ registro[4] }}</td>
+                        <td class="py-2 px-4 border">{{ registro[5] }}</td>
+                        <td class="py-2 px-4 border">{{ registro[6] }}</td>
+                        <td class="py-2 px-4 border">
+                            <a href="{{ url_for('routes.actualizar_registro', id=registro[0]) }}" class="text-blue-500 hover:underline">Editar</a>
+                            <a href="{{ url_for('routes.eliminar_registro', id=registro[0]) }}" class="text-red-500 hover:underline ml-2" onclick="return confirm('¿Estás seguro?')">Eliminar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="{{ url_for('routes.index') }}" class="mt-4 inline-block bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">Volver</a>
+    </div>
+</body>
+</html>

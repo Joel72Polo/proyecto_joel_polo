@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizar Registro</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-6">
+        <h1 class="text-3xl font-bold mb-6">Actualizar Registro</h1>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="p-4 mb-4 text-white {% if category == 'success' %}bg-green-500{% else %}bg-red-500{% endif %}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST" class="bg-white p-6 rounded shadow">
+            <input type="hidden" name="id" value="{{ registro[0] }}">
+            <div class="mb-4">
+                <label class="block text-gray-700">Registro SCUEP</label>
+                <input type="text" name="registro_scuep" value="{{ registro[1] }}" class="w-full p-2 border rounded" disabled>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700">Año</label>
+                <input type="number" name="anio" value="{{ registro[2] }}" class="w-full p-2 border rounded" disabled>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700">Proyecto</label>
+                <input type="text" name="proyecto" value="{{ registro[3] }}" class="w-full p-2 border rounded" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700">Dirección</label>
+                <input type="text" name="direccion" value="{{ registro[4] }}" class="w-full p-2 border rounded" disabled>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700">Unidades</label>
+                <input type="number" name="unidades" value="{{ registro[5] }}" class="w-full p-2 border rounded" disabled>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700">Enajenador</label>
+                <input type="text" name="enajenador" value="{{ registro[6] }}" class="w-full p-2 border rounded" disabled>
+            </div>
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Actualizar</button>
+            <a href="{{ url_for('routes.index') }}" class="ml-2 text-gray-500 hover:underline">Cancelar</a>
+        </form>
+    </div>
+</body>
+</html>
